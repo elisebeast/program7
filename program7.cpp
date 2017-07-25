@@ -91,20 +91,25 @@ return 0;
 void fill_array(double rainfall[][MONTHS_DATA])
 {
 int a, b;
+double null;
 	for (a = 0; a < WEATHER_STATIONS; a++)
 	{
+		rainfallInput >> null; //putting that first column somwhere else (where it becomes null)
+		cout << "WS " << a+1 << ": ";
 		for (b = 0; b < MONTHS_DATA + 1; b++)
 		{
-			rainfallInput >> rainfall[a][b]; //board[i][j] = input(); retreived from http://www.cplusplus.com/forum/beginner/42045/
-			//cout << rainfall[a][b] << " ";  //NEED TO USE A FOR LOOP TO INITIALIZEEEEEE
+				double milimeter;
+				rainfallInput >> milimeter;
+				rainfall[a][b] = milimeter/25.4; //board[i][j] = input(); retreived from http://www.cplusplus.com/forum/beginner/42045/
+				cout << rainfall[a][b] << " ";  //NEED TO USE A FOR LOOP TO INITIALIZEEEEEE
 		}
-		//cout << endl;
+		cout << endl;
 	}
 //convert row b only to inches, row a gets a label and also becomes an int w no decimal pts
 }
 void format_array(double rainfall[][MONTHS_DATA])
 {
-int a,b,c;
+/*int a,b;
 	for (a = 0; a < WEATHER_STATIONS + 1; a++) //printing the row or weather station number
 	{
 		cout << "WS " << a + 1 << ": ";
@@ -114,11 +119,11 @@ int a,b,c;
 			std::fixed <<
 			std::setprecision(2);
 
-			c = rainfall[a][b]/25.4; //converts the milimeter rainfall data to inches
-			cout << rainfall[a][c] << " ";  //NEED TO USE A FOR LOOP TO INITIALIZEEEEEE
+			rainfall[a][b] = rainfall[a][b]/25.4; //converts the milimeter rainfall data to inches
+			cout << rainfall[a][b] << " ";  //NEED TO USE A FOR LOOP TO INITIALIZEEEEEE
 		}
 		cout << endl;
-	}
+	}*/
 }
 
 void display_menu(int& continueMenu)
